@@ -26,7 +26,6 @@ services:
     rootDir: client
     buildCommand: npm install && npm run build
     staticPublishPath: build
-    envVars:
-      - key: REACT_APP_API_URL
-        value: https://vecino-backend.onrender.com/api
+
+
 
