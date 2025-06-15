@@ -20,7 +20,7 @@ services:
       - key: AGORA_APP_CERTIFICATE
         value: agora-certificado
 
-  - type: static
+  - type: web
     name: vecino-frontend
     env: static
     rootDir: client
@@ -29,3 +29,4 @@ services:
     envVars:
       - key: REACT_APP_API_URL
         value: https://vecino-backend.onrender.com/api
+
