@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: vecino-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://ujz9yberguxml:77239800@dbs1cm6wgqdi1g:5432/notarypro_db
+      - key: JWT_SECRET
+        value: clave-super-secreta-123
+      - key: MERCADOPAGO_ACCESS_TOKEN
+        value: your-test-token
+      - key: SENDGRID_API_KEY
+        value: your-sendgrid-key
+      - key: AGORA_APP_ID
+        value: agora-app-id
+      - key: AGORA_APP_CERTIFICATE
+        value: agora-certificado
+
+  - type: static
+    name: vecino-frontend
+    env: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://vecino-backend.onrender.com/api
