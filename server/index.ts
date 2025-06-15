@@ -65,9 +65,10 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   // Actualizado para evitar conflictos EADDRINUSE
-  const port = 5000;
-  server.listen({
-    port,
+  const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log('Servidor corriendo en puerto', port);
+});
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
